@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "chat-poetry"
+version = "0.1.0"
+description = ""
+authors = ["Erika Fernanda <erika.fernanda@smartsuite.imd.ufrn.br>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+flask = "^3.0.3"
+flask-socketio = "^5.3.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
