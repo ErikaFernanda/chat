@@ -23,32 +23,52 @@ def generate_unique_code(length):
 
 
 @app.route("/", methods=["POST", "GET"])
-def home():
-    session.clear()
-    if request.method == "POST":
-        name = request.form.get("name")
-        code = request.form.get("code")
-        join = request.form.get("join", False)
-        create = request.form.get("create", False)
+def choice_home():
 
-        if not name:
-            return render_template("home.html", error="Please enter a name.", code=code, name=name)
+    code = request.form.get("code")
+    name = request.form.get("name")
+    room = code
+    print(name)
+    print(code)
 
-        if join != False and not code:
-            return render_template("home.html", error="Please enter a room code.", code=code, name=name)
+    if name == None:
+        return render_template("choice_room.html")
+    elif code == "":
+        room = generate_unique_code(4)
 
-        room = code
-        if create != False:
-            room = generate_unique_code(4)
-            rooms[room] = {"members": 0, "messages": []}
-        elif code not in rooms:
-            return render_template("home.html", error="Room does not exist.", code=code, name=name)
+    rooms[room] = {"members": 0, "messages": []}
+    session["room"] = room
+    session["name"] = name
+    return redirect(url_for("room"))
 
-        session["room"] = room
-        session["name"] = name
-        return redirect(url_for("room"))
 
-    return render_template("home.html")
+# @app.route("/home", methods=["POST", "GET"])
+# def home():
+#     session.clear()
+#     if request.method == "POST":
+#         name = request.form.get("name")
+#         code = request.form.get("code")
+#         join = request.form.get("join", False)
+#         create = request.form.get("create", False)
+
+#         if not name:
+#             return render_template("home.html", error="Please enter a name.", code=code, name=name)
+
+#         if join != False and not code:
+#             return render_template("home.html", error="Please enter a room code.", code=code, name=name)
+
+#         room = code
+#         if create != False:
+#             room = generate_unique_code(4)
+#             rooms[room] = {"members": 0, "messages": []}
+#         elif code not in rooms:
+#             return render_template("home.html", error="Room does not exist.", code=code, name=name)
+
+#         session["room"] = room
+#         session["name"] = name
+#         return redirect(url_for("room"))
+
+#     return render_template("home.html")
 
 
 @app.route("/room")

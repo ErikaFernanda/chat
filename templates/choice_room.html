@@ -1,0 +1,66 @@
+{% extends 'base.html' %} {% block content %}
+<div class="block-form">
+  <form method="post" class="buttons">
+    <img
+      style="width: 150px; margin: 10px"
+      src="https://ffescritor.wordpress.com/wp-content/uploads/2014/05/chat-icon2.png"
+    />
+    <input
+      class="inputs-home"
+      type="text"
+      placeholder="Coloque um nome!"
+      name="name"
+      value="{{name}}"
+      id="input-name"
+    />
+    <input
+      class="inputs-home"
+      type="text"
+      placeholder="Código da sala"
+      name="code"
+      value="{{code}}"
+      id="input-code"
+    />
+    <button
+      class="button-choice"
+      type="button"
+      name="join"
+      onClick="enterRoom()"
+      id="enter-room-btn"
+    >
+      Entrar na sala
+    </button>
+
+    <button
+      class="button-choice"
+      type="button"
+      name="create"
+      class="create-btn"
+      onClick="createRoom()"
+      id="create-room-btn"
+    >
+      Criar sala
+    </button>
+
+    <button class="button-choice" type="submit" name="save" id="save-btn">
+      Salvar
+    </button>
+  </form>
+</div>
+<script type="text/javascript">
+  const createRoom = () => {
+    document.querySelector("#input-name").style.display = "block";
+    document.querySelector("#input-code").style.display = "none";
+    document.querySelector("#enter-room-btn").style.display = "none";
+    document.querySelector("#create-room-btn").style.display = "none";
+    document.querySelector("#save-btn").style.display = "block";
+  };
+  const enterRoom = () => {
+    document.querySelector("#input-name").style.display = "block";
+    document.querySelector("#input-code").style.display = "block";
+    document.querySelector("#create-room-btn").style.display = "none";
+    document.querySelector("#save-btn").style.display = "block";
+    document.querySelector("#enter-room-btn").style.display = "none";
+  };
+</script>
+{% endblock %}
