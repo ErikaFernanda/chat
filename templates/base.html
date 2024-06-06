@@ -8,37 +8,13 @@
       rel="stylesheet"
       href="{{url_for('static', filename='css/style.css')}}"
     />
-    <script src="https://cdn.jsdelivr.net/npm/@joeattardi/emoji-button@4.7.1/dist/emoji-button.min.js"></script>
-
-   
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
       integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
       crossorigin="anonymous"
     ></script>
-    
   </head>
   <body>
     <div class="content">{% block content %} {% endblock %}</div>
   </body>
 </html>
-<script>
-  // Inicialize o Emoji Button
-  document.addEventListener("DOMContentLoaded", () => {
-    const button = document.querySelector("#emoji-button");
-    const input = document.querySelector("#emoji-input");
-
-    // Crie uma instância do Emoji Button
-    const picker = new EmojiButton();
-    console.log(picker);
-    // Adicione um evento de clique ao botão para abrir o picker de emojis
-    button.addEventListener("click", () => {
-      picker.togglePicker(button);
-    });
-
-    // Adicione o emoji selecionado ao campo de entrada
-    picker.on("emoji", (emoji) => {
-      input.value += emoji;
-    });
-  });
-</script>
