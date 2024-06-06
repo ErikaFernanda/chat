@@ -3,6 +3,7 @@ body {
   background-image: url("https://static.vecteezy.com/system/resources/previews/009/877/820/non_2x/pixel-art-landscape-of-pine-forest-in-the-mountains-with-lake-and-clouds-8-bit-game-background-vector.jpg");
   background-size: cover;
   margin: 0;
+  padding: 0;
 }
 
 .content {
@@ -28,7 +29,7 @@ body {
   background-color: #3023278a;
   padding: 30px;
   width: 25vw;
-  border-radius: 4vh;
+  border-radius: 35px;
 }
 .join {
   display: flex;
@@ -70,6 +71,7 @@ h2 {
 
 #message {
   flex: 1;
+  padding: 7px;
 }
 
 .text {
@@ -86,19 +88,34 @@ h2 {
   color: darkgray;
 }
 
-#input-name{
+#input-name {
   display: none;
 }
 
-#input-code{
+#input-code {
   display: none;
 }
-.inputs-home{
+.inputs-home {
   width: 17vw;
   border-radius: 22px;
   padding: 10px;
 }
 
-#save-btn{
+#save-btn {
   display: none;
+}
+
+/* responsive */
+
+@media (max-width: 700px) {
+  .block-form {
+    width: 55vw;
+  }
+  .inputs-home {
+    width: 35vw;
+  }
+  .inputs {
+    padding: 10px;
+   
+}
 }
